@@ -132,8 +132,41 @@ Comparing the two events, the 5k event obviously has more outliers in both gende
 ```{r ex3, out.width = "80%"}
 # Write your code to answer exercise 3 here
 
+strava_runs <- read_csv("strava_runs.csv")
 
+avg_distance <- strava_runs %>%
+  group_by(athlete) %>%
+  summarise(Mean = mean(distance..m., na.rm = TRUE))
 
+runner_class <- avg_distance %>%
+  mutate(
+    runner_type = case_when(
+      Mean > 13000 ~ "Long-distance",
+      Mean < 7000  ~ "Short-distance",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(runner_type))
+
+classified_runs <- strava_runs %>%
+  inner_join(runner_class, by = "athlete") %>%
+  mutate(
+    distance_km = distance..m. / 1000,
+    avg_mps = distance..m. / elapsed.time..s.
+  )
+
+ggplot(classified_runs, aes(x = distance_km, y = avg_mps, color = runner_type)) +
+  geom_point(alpha=0.25) +
+  geom_smooth(method = lm) +
+  scale_color_manual(values = c("Short-distance" = "forestgreen", "Long-distance" = "orange")) +
+  labs(
+    title = "Speed vs Distance for Long- and Short-Distance Runners",
+    subtitle = "Grouped by runners' average distance (>13 km vs <7 km)",
+    x = "Run distance (km)",
+    y = "Average Speed (m/s)",
+    color = "Runner Type"
+  ) +
+   theme_bw()
 
 
 ```
