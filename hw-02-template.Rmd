@@ -95,14 +95,36 @@ Comparing with male runners, female runners generally show higher average heart 
 ```{r ex2, out.width = "80%"}
 # Write your code to answer exercise 2a here
 
+data_5k_10k <- data_5k_10k %>%
+  filter(!is.na(gender)) %>%
+  mutate(
+    pace = (elapsed.time..s. / 60) / (distance..m. / 1000)
+  )
 
 
+ggplot(data = data_5k_10k,
+       mapping = aes(x = event, y = pace, fill= event)) +
+   
+  geom_boxplot(coef = 1,
+               fill = "grey",
+               colour = "black",
+               lwd = 0.5,         
+               outlier.shape = 4,
+               outlier.color = "red") +
+  facet_wrap(~gender) +
+  labs(
+    title = "Pace Comparison between 5K and 10K Runs ",
+    subtitle = "By Gender",
+    x = "Event Type",
+    y = "Pace (minutes per km)",
+  ) +
+  theme_bw() 
 
 ```
 
-_Write your text to answer exercise 2b here (Please delete this message before submission!)_
 
-
+The boxplots clearly show that  runners of both genders generally have faster speed(lower minutes per km)in 5k events than in 10k events. In addition, compared with female runners, male runners tend to be faster and more consistent in both events .
+Comparing the two events, the 5k event obviously has more outliers in both genders, which shows that runners' performance in the 5k event is not stable.
 
 
 ## Exercise 3
