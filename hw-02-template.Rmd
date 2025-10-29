@@ -184,15 +184,20 @@ ggplot(classified_runs, aes(x = distance_km, y = avg_mps, color = runner_type)) 
 knitr::include_graphics("img/good_viz.png")
 ```
 
-_Edit the text below by replacing the bold text with the appropriate information to provide a reference for your image (Please delete this message before submission!)_
 
-**Author/Organisation**, "**Title of website**" [Online]. Available at: **URL** (Accessed: **day month year**)
+**Our World in Data**, "**Deaths in armed conflicts by region**" [Online]. Available at: **https://ourworldindata.org/grapher/deaths-in-armed-conflicts-by-region?time=1989..2025** (Accessed: **29 October 2025**)
 
 
 The above image presents a good data visualisation because:
 
 -   _Reason 1_
+    Respect the data
+   The visualisation lets the data speak for itself without manipulation for a particular narrative.
+    The bar chart is very suitable to represent deaths in different regions over time. It has used an informative title and axis labels. The subtitle also clearly shows the detailed information about visualisation.
+    
 -   _Reason 2_
+   Respect the people
+   The design of the visualisation is clean and accessible. Colours on it are distinct and labelled, the legend is easy to read, and the chart layout supports viewers’ cognitive understanding. It also communicates complex information more easily.
 
 
 #### Example of a bad data visualisation
@@ -203,15 +208,19 @@ The above image presents a good data visualisation because:
 knitr::include_graphics("img/bad_viz.png")
 ```
 
-_Edit the text below by replacing the bold text with the appropriate information to provide a reference for your image (Please delete this message before submission!)_
 
-**Author/Organisation**, "**Title of website**" [Online]. Available at: **URL** (Accessed: **day month year**)
+**Aditya Raj**, "**12 Bad Data Visualization Examples Explained**" [Online]. Available at: **https://i0.wp.com/www.codeconquest.com/wp-content/uploads/image-11.png?w=1079&ssl=1** (Accessed: **29 October 2025**)
 
 
 
 The above image presents a bad data visualisation because:
 
 -   _Reason 1_
+   Not respect the mathematics
+   The Y-axis of this visualisation scale is distorted, which suddenly jumps from $700M to $1,700M. This breaking the proportional relationship between bar lengths and actual values. The revenue of $490M looks bigger than $1213M of government funding, which seriously misleads the viewer.
 -   _Reason 2_
+   not respect the data and the people
+   The chart design is confusing because the categories are not shown clearly or consistently. The “Revenue” and the “advertising revenue” are drawn as separate bars, even though they are part of the same total. This makes it difficult for audiences to understand the real relationship between them.
+Additionally, the visualisation style is not appropriate enough. Instead of using multiple separate bar charts, combining some extra charts into one or two charts will be better. Besides, adding some appropriate and accurate text can help people understand the visualisation better.
 
 
